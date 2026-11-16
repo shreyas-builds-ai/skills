@@ -15,17 +15,28 @@ From [Shreyas Builds AI](https://www.instagram.com/shreyas.builds.ai) · *Hype n
 | **Claude** (claude.ai, free or paid) or Claude Code | The **Prompter skill** (`prompter/` folder) | Free |
 | **ChatGPT** (any plan, including free) | **[chatgpt-codes.md](chatgpt-codes.md)**: paste one block into Custom Instructions | Free |
 
-## Install the skill on claude.ai (free plan works)
+## Install on claude.ai (website or app, free plan works)
 
-1. Download **`prompter.zip`** from the [Releases](../../releases) page of this repo.
-   (Don't use GitHub's green "Code → Download ZIP" button: that ZIP has the wrong folder name and the upload fails.)
-2. On claude.ai, open **Settings → Capabilities** and turn on **Code execution and file creation** (in newer layouts it's called **Create and edit files**). Skills need it.
-3. Go to **Customize → Skills**, click **+**, choose **Create skill → Upload a skill**, and pick `prompter.zip`.
+1. **Download** [**prompter.zip**](https://github.com/shreyas-builds-ai/skills/raw/main/prompter/prompter.zip) (one click).
+2. On claude.ai, open **Settings → Capabilities** and turn on **Create and edit files** (older layouts: *Code execution and file creation*). Skills need it.
+3. Open **Customize → Skills**, tap **+ → Upload a skill**, and choose `prompter.zip`.
 4. Make sure Prompter is switched on. Done.
+
+Use the download link above, not GitHub's green **Code → Download ZIP** button: that ZIP has the wrong folder name and the upload fails.
+
+## Use it in ChatGPT
+
+Open [chatgpt-codes.md](chatgpt-codes.md), copy the block, and paste it into **Settings → Personalization → Custom Instructions**.
 
 ## Install in Claude Code
 
-Copy the `prompter/` folder into `~/.claude/skills/` (all projects) or `.claude/skills/` inside one project.
+Paste this into Claude Code:
+
+```
+Install the prompter skill from https://github.com/shreyas-builds-ai/skills: copy the folder prompter/prompter/ into ~/.claude/skills/prompter/
+```
+
+Or run `npx skills add shreyas-builds-ai/skills --skill prompter`, or copy the `prompter/` folder into `~/.claude/skills/` (all projects) or `.claude/skills/` (one project) by hand.
 
 ## How to use
 

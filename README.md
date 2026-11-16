@@ -24,28 +24,33 @@ More are coming. Follow [@shreyas.builds.ai](https://www.instagram.com/shreyas.b
 
 ## Install
 
-### One command (Claude Code and other coding agents)
+### claude.ai: website or app (the free plan works)
+
+1. **Download** the skill: [**prompter.zip**](https://github.com/shreyas-builds-ai/skills/raw/main/prompter/prompter.zip) (one click).
+2. On claude.ai, open **Settings → Capabilities** and turn on **Create and edit files** (older layouts: *Code execution and file creation*).
+3. Open **Customize → Skills**, tap **+ → Upload a skill**, and choose the file you downloaded. Done.
+
+Use the download link above, not GitHub's green **Code → Download ZIP** button: that ZIP has the wrong folder name and the upload fails.
+
+### ChatGPT (any plan)
+
+ChatGPT doesn't load skills. Open [chatgpt-codes.md](prompter/chatgpt-codes.md), copy the block, and paste it into **Settings → Personalization → Custom Instructions**.
+
+### Claude Code
+
+Paste this into Claude Code:
+
+```
+Install the prompter skill from https://github.com/shreyas-builds-ai/skills: copy the folder prompter/prompter/ into ~/.claude/skills/prompter/
+```
+
+Or with one command (needs [Node.js](https://nodejs.org)):
 
 ```bash
 npx skills add shreyas-builds-ai/skills --skill prompter
 ```
 
-Needs [Node.js](https://nodejs.org). The [skills CLI](https://skills.sh) finds the skill in this repo and installs it for the agents on your machine. Swap `prompter` for any skill name in the table above.
-
-### By hand (Claude Code)
-
-Copy the inner skill folder (for Prompter, that's `prompter/prompter/`) into:
-
-- `~/.claude/skills/` to use it in every project, or
-- `.claude/skills/` inside one project.
-
-### claude.ai (the free plan works)
-
-Every skill has a ZIP on the [Releases](../../releases) page. Upload that ZIP, not the one from GitHub's green **Code → Download ZIP** button, which has the wrong folder layout and fails. The step-by-step guide is in each skill's README: [Prompter on claude.ai](prompter/README.md#install-the-skill-on-claudeai-free-plan-works).
-
-### ChatGPT
-
-ChatGPT doesn't load skill folders. When a skill has a ChatGPT version, it sits in that skill's folder, ready to paste into Custom Instructions. For Prompter: [chatgpt-codes.md](prompter/chatgpt-codes.md).
+Or by hand: copy `prompter/prompter/` into `~/.claude/skills/` (every project) or `.claude/skills/` (one project).
 
 ## House rules
 
@@ -63,8 +68,10 @@ Every skill in this repo:
 skills/
 ├── README.md                you are here
 ├── assets/banner.png
+├── tools/make-zips.py       builds every <name>/<name>.zip
 └── prompter/
     ├── README.md            install and usage guide
+    ├── prompter.zip         one-click download for claude.ai
     ├── LICENSE
     ├── chatgpt-codes.md     ChatGPT version
     └── prompter/            the skill folder you install
@@ -72,7 +79,7 @@ skills/
         └── references/
 ```
 
-Every new skill follows the same shape: `<name>/README.md` for people, `<name>/<name>/SKILL.md` for the AI.
+Every new skill follows the same shape: `<name>/README.md` for people, `<name>/<name>/SKILL.md` for the AI, and `<name>/<name>.zip` for claude.ai. After changing a skill, run `python tools/make-zips.py` and commit the new ZIP with the change.
 
 ## Found a problem?
 
